@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">My Library</string>
+    <string name="easy_capture_provider">com.easy.capture.provider</string>
+</resources>
