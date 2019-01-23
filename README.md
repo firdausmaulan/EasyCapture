@@ -6,7 +6,7 @@ EasyCapture android camera library
 
 # Demo
 
-![](https://s2.gifyu.com/images/glide_slider.gif)
+![](https://s2.gifyu.com/images/easycapture.gif)
 
 # Setup
 
