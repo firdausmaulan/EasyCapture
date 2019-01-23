@@ -4,7 +4,9 @@ EasyCapture android camera library
 - Using file provider so it's support for android nougat 7.0 or above
 - Already handled for runtime permission
 
-![](https://s2.gifyu.com/images/easycapture.gif)
+# Demo
+
+![](https://s2.gifyu.com/images/glide_slider.gif)
 
 # Setup
 
