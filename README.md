@@ -8,6 +8,25 @@ EasyCapture android camera library
 
 # Setup
 
+```xml
+<!-- Add it into your string.xml -->
+<string name="easy_capture_provider_authorities" translatable="false">your.package.name.provider</string>
+```
+
+```xml
+<!-- Add it into your AndroidManifest.xml -->
+<!-- Make sure the android:authorities value same as easy_capture_provider_authorities on your string -->
+<provider
+    android:name="android.support.v4.content.FileProvider"
+    android:authorities="your.package.name.provider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_paths" />
+</provider>
+```
+
 ```java
 // Add jitpack.io on your gradle root
 repositories {
@@ -18,7 +37,7 @@ repositories {
 ```java
 // Add EasyCapture on your gradle app
 dependencies {
-    implementation 'com.github.firdausmaulan:EasyCapture:1.0.0'
+    implementation 'com.github.firdausmaulan:EasyCapture:1.0.1'
 }
 ```
 
