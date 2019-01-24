@@ -16,6 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- Add it into your AndroidManifest.xml -->
+        <!-- Make sure the android:authorities value same as easy_capture_provider_authorities on your string -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.easy.capture.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

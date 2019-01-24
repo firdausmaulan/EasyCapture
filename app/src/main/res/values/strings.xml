@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Easy Capture</string>
+    <string name="easy_capture_provider_authorities" translatable="false">com.easy.capture.provider</string>
 </resources>
