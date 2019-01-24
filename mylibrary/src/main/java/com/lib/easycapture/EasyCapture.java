@@ -13,10 +13,8 @@ import java.io.File;
 
 public class EasyCapture {
 
-    private String providerAuthorities = "com.lib.easycapture";
     public static final int REQUEST_CODE = 201;
-    static final int PERMISSION_CAMERA = 202;
-    static final int PERMISSION_STORAGE = 203;
+    static final int PERMISSION_REQUEST_CODE = 202;
 
     public File setImageFile(@NonNull Activity activity) {
         File mediaStorageDir = new File(
@@ -31,14 +29,17 @@ public class EasyCapture {
     }
 
     public void openCamera(@NonNull Activity activity, @NonNull File file) {
-        EasyCapPermission permission = new EasyCapPermission();
-        if (permission.camera(activity) && permission.writeStorage(activity)) {
+        EasyCapturePermission permission = new EasyCapturePermission();
+        if (permission.checked(activity)) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            Uri uri = FileProvider.getUriForFile(activity, providerAuthorities, file);
+            String providerAuth = activity.getString(R.string.easy_capture_provider_authorities);
+            Uri uri = FileProvider.getUriForFile(activity, providerAuth, file);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
             if (intent.resolveActivity(activity.getPackageManager()) != null) {
                 activity.startActivityForResult(intent, REQUEST_CODE);
             }
+        } else {
+            permission.showPermissionDialog(activity);
         }
     }
 }
